@@ -61,3 +61,49 @@ class AVL_Tree:
         else:
             return False
         
+    def delete(self, data):
+        if self.root is None:
+            return
+        
+        self.root = self._delete(self.root, data)
+        
+    def _delete(self, node, data):
+        if node is None:
+            return None
+        
+        if data < node.data:
+            node.left = self._delete(node.left, data)
+        elif data > node.data:
+            node.right = self._delete(node.right, data)
+        else:
+
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            
+            min_node = self._min(node.right)
+            node.data = min_node.data
+            node.right = self._delete(node.right, min_node.data)
+            
+        node.height = max(self.height(node.left), self.height(node.right)) + 1
+        
+        balance_factor = self.balance(node)
+        
+        if balance_factor > 1 and self.balance(node.left) >= 0:
+            return self.rotate_right(node)
+        
+        if balance_factor > 1 and self.balance(node.left) < 0:
+            return self.rotate_left_right(node)
+        
+        if balance_factor < -1 and self.balance(node.right) <= 0:
+            return self.rotate_left(node)
+        
+        if balance_factor < -1 and self.balance(node.right) > 0:
+            return self.rotate_right_left(node)
+        
+        return node
+    
+
+
+    
