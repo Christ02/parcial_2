@@ -105,5 +105,30 @@ class AVL_Tree:
         return node
     
 
+    def min(self):
+        if self.root is None:
+            return None
+        
+        return self._min(self.root)
+
+    def _min(self, node):
+        if node.left is None:
+            return node
+        
+        return self._min(node.left)
+
+    def max(self):
+        if self.root is None:
+            return None
+        
+        return self._max(self.root)
+
+    def _max(self, node):
+        if node.right is None:
+            return node
+        
+        return self._max(node.right)
+    
+
 
     
