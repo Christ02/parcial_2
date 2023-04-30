@@ -64,45 +64,46 @@ class AVL_Tree:
     def delete(self, data):
         if self.root is None:
             return
-        
+
         self.root = self._delete(self.root, data)
         
     def _delete(self, node, data):
         if node is None:
             return None
-        
+
         if data < node.data:
-            node.left = self._delete(node.left, data)
+            node.left_child = self._delete(node.left_child, data)
         elif data > node.data:
-            node.right = self._delete(node.right, data)
+            node.right_child = self._delete(node.right_child, data)
         else:
 
-            if node.left is None:
-                return node.right
-            elif node.right is None:
-                return node.left
-            
-            min_node = self._min(node.right)
+            if node.left_child is None:
+                return node.right_child
+            elif node.right_child is None:
+                return node.left_child
+
+            min_node = self._min(node.right_child)
             node.data = min_node.data
-            node.right = self._delete(node.right, min_node.data)
-            
-        node.height = max(self.height(node.left), self.height(node.right)) + 1
-        
+            node.right_child = self._delete(node.right_child, min_node.data)
+
+        node.height = max(self.height(node.left_child), self.height(node.right_child)) + 1
+
         balance_factor = self.balance(node)
-        
-        if balance_factor > 1 and self.balance(node.left) >= 0:
+
+        if balance_factor > 1 and self.balance(node.left_child) >= 0:
             return self.rotate_right(node)
-        
-        if balance_factor > 1 and self.balance(node.left) < 0:
+
+        if balance_factor > 1 and self.balance(node.left_child) < 0:
             return self.rotate_left_right(node)
-        
-        if balance_factor < -1 and self.balance(node.right) <= 0:
+
+        if balance_factor < -1 and self.balance(node.right_child) <= 0:
             return self.rotate_left(node)
-        
-        if balance_factor < -1 and self.balance(node.right) > 0:
+
+        if balance_factor < -1 and self.balance(node.right_child) > 0:
             return self.rotate_right_left(node)
-        
+
         return node
+
     
 
     def min(self):
