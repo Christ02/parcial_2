@@ -2,18 +2,18 @@ Parcial no. 2: Trees
 
 Instrucciones
 Completar en parejas las siguientes actividades:
+
 1) AVL Trees
-Desarrollar una implementación propia de la clase AVL Tree, la cual debe
-basarse en el estilo utilizado en implementaciones anteriores.
+Desarrollar una implementación propia de la clase AVL Tree, la cual debe basarse en el estilo utilizado en implementaciones anteriores.
+
 ● La clase debe contar con los siguientes métodos:
 ○ Insert
-○ Traverse
 ○ Search
 ○ Delete
 ○ Min
 ○ Max
-● Incluir un archivo de pruebas para demostrar el funcionamiento de los
-métodos previamente listados.
+
+● Incluir un archivo de pruebas para demostrar el funcionamiento de los métodos previamente listados.
 
 2) BST vs AVL
 Realizar un benchmarking entre la implementación de BST y AVL.
