@@ -7,10 +7,15 @@ Completar en parejas las siguientes actividades:
 Desarrollar una implementación propia de la clase AVL Tree, la cual debe basarse en el estilo utilizado en implementaciones anteriores.
 
 ● La clase debe contar con los siguientes métodos:
+
 ○ Insert
+
 ○ Search
+
 ○ Delete
+
 ○ Min
+
 ○ Max
 
 ● Incluir un archivo de pruebas para demostrar el funcionamiento de los métodos previamente listados.
