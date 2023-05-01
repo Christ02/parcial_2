@@ -1,5 +1,3 @@
-
-
 class Node:
     '''
     Representa un nodo en un árbol binario.
@@ -27,11 +25,6 @@ class Node:
             str: La representación en cadena del nodo.
         """
         return '({})'.format(self.data)
-
-class AVL_Tree:
-    def __init__(self):
-        self.root = None
-    
 
 class BinarySearchTree:
     """Representa un árbol binario de búsqueda.
@@ -209,3 +202,11 @@ class BinarySearchTree:
                 subtree.data = temp.data
                 subtree.right_child = self._delete_node(subtree.right_child, temp.data)
         return subtree
+    
+    def count_nodes(self):
+        return self._count_nodes(self.root)
+
+    def _count_nodes(self, node):
+        if node is None:
+            return 0
+        return 1 + self._count_nodes(node.left_child) + self._count_nodes(node.right_child)
