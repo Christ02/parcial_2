@@ -7,15 +7,10 @@ data_avl = random.sample(range(1, 101), N)
 
 tree = AVL_tree()
 
-print('AVL object: {}'.format(tree)) 
-print('Current root: {}'.format(tree.root)) 
-
 for data in data_avl:
     tree.insert(data)
 
-print("Tree original")
 print(tree._traverse(tree.root))
 print('Current root: {}'.format(tree.root)) 
-
 
 tree.visualize()
